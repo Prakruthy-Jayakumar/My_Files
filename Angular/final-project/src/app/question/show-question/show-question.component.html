@@ -1,0 +1,30 @@
+
+<div class="well">
+  <div style="text-align: center;" *ngIf="result" > 
+    <h2 class="text-info">{{result.title | uppercase}}</h2>
+   
+    <div><span><b>Question</b><br> </span>{{result.question}}</div>
+      <a  routerLink="/addanswers/{{result.id}}" class="btn btn-info pull-right">Add Answer</a>
+  </div>
+  <div>
+
+    <p>{{numberOfLikes}}</p>
+ 
+  <a type="button" class="list-group-item" (click)="unlikequestion()" class="btn btn-defualt btn-sm pull-right"><span class="glyphicon glyphicon-thumbs-down"></span></a>
+  <a type="button" class="list-group-item"  (click)="likequestion()" class="btn btn-defualt btn-sm pull-right"><span class="glyphicon glyphicon-thumbs-up"></span></a>
+</div>
+  
+  <hr>
+ 
+<h3>Answers</h3> 
+<div *ngIf="result.answers">
+  <ul class="list-group"*ngFor="let x of result.answers">
+    <li class="list-group-item">{{x.answer}}</li>
+       <div *ngIf =  " userserv.getuserid()==x.user_id"> 
+        <li><a class="list-group-item" routerLink="/deleteanswer/{{x.id}}"class="btn btn-danger btn-sm pull-right"> <span class="glyphicon glyphicon-trash"></span></a></li> 
+        <li> <a  class="list-group-item" routerLink="/editanswers/{{x.id}}" class="btn btn-info btn-sm pull-right"> <span class="glyphicon glyphicon-pencil"></span></a></li>
+     </div> 
+  </ul>
+  
+</div>  
+<button (click)="goBack()">go back</button>

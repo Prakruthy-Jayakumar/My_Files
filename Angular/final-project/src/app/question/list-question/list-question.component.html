@@ -1,0 +1,19 @@
+<h1 style="text-align: center;">Questions</h1>
+<a  routerLink="/askquestions" class="btn btn-info pull-right">Ask Question</a>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3"><br><br>
+        <div class="row">
+          <ul class="list-group" class="questions" *ngIf="myArray.data" style="list-style: none;"> 
+            <li class="list-group-item" *ngFor="let x of myArray.data">
+              <a routerLink="/showquestions/{{x.id}}">
+                <span class="badge">{{x.title}}</span>  <br>
+              </a>  
+            </li>
+          </ul>
+        </div>
+    </div>
+  </div>
+</div>
+
+

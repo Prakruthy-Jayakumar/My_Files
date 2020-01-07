@@ -1,0 +1,51 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<nav class="">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      
+      <img class="center" style="height: 50px; margin-left: 100px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqVNRUwpfOwZ5n4kvVXea2VHd6QZGACVVaBOl5aJ2EGSG-WAIF&s">
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+          <li><a  routerLink="/"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+        
+        <li><a  routerLink="/listquestions"><span class="glyphicon glyphicon-inbox"></span>Questions</a></li>
+        <li><a  routerLink="/searchquestion"><span class="glyphicon glyphicon-search"></span>Search</a></li>
+
+        <li> <a style="float:right;" routerLink="/myquestions" *ngIf="userService.isLoggedIn()">My Questions</a></li>
+      </ul>
+      
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="nav-item" *ngIf="!isLoggedIn">
+          <a routerLink="/myquestions" class="nav-link"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+        </li>
+        <li class="nav-item" *ngIf="!isLoggedIn">
+          <a routerLink="/register" class="nav-link"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+        </li>
+        <li> <a style="float:right;" routerLink="/answeredbyme" *ngIf="userService.isLoggedIn()">My Answers</a></li>
+        <!-- <li *ngFor="let user of users">Hello, {{user.name}}</li> -->
+        <li class="nav-item">
+          <a routerLink="/login" class="nav-link"  *ngIf="userService.isLoggedIn()"(click) = "logout()" ><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+          
+      </ul>
+     
+    
+    </div>
+  </div>
+ 
+  <hr>
+
+  
+</nav>
+
+
+
+    
+
+<router-outlet></router-outlet>
+<app-messages></app-messages>

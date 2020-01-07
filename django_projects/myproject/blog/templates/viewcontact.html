@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ajax</title>
+</head>
+<body>
+    <h1>view Contact</h1>
+    <button id="request-btn">View Contact</button>
+<div id=response></div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#request-btn").click(function(){
+        $.ajax({
+            url: "/blogs/test_ajax",
+            type: "GET",
+            dataType:"json",
+            success: function(result){
+
+                $("#response").html("The resonponse is  <strong>"+JSON.stringify(result)+"</strong>");
+                $("#response").append("<br>The value in  resonponse object <strong>foo</strong> is <strong>"+result.contact+"</strong>");
+            }
+    });
+    });
+}); 
+</script>
+
+</body>
+</html>

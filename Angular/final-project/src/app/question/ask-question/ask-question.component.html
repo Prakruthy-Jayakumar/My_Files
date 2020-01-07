@@ -1,0 +1,12 @@
+<h2 style="text-align: center;">Add Questions</h2>
+<div class="col-md-4 col-md-offset-4">
+  <div class="jumbotron" >
+<form #form3 = "ngForm" (ngSubmit)=question(form3.value)>
+  <label>Title</label><br>
+    <input type="text" ngModel  name="title"><br>
+  <label>Question</label><br>
+    <input type="text" ngModel  name="question"><br><br>
+  <button type="submit">Submit</button>
+</form>
+</div>
+</div>

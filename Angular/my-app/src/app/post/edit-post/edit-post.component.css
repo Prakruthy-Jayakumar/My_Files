@@ -1,0 +1,3 @@
+input.ng-invalid.ng-dirty, textarea.ng-invalid.ng-dirty {
+    background-color: #ef5350;
+  }

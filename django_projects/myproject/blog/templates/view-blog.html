@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>View-blog</title>
+</head>
+<body>
+	<h3>Blog Name</h3>
+	<br>
+	{{ blog.name }}
+	<br>
+	<h3>Tagline</h3>
+	{{blog.tagline}}	
+	<br>
+	{{ blog.headline }}	
+	<h4>List of Blogs</h4>
+
+	{% for icon in rslt %} <!-- for select or list  all values -->
+		<a href="/blogs/{{icon.id}}">Blog {{icon.id}}</a><br>
+	{% endfor %}
+
+	<br>
+	<br>
+	<!--<a href="/blogs/details/{{blog.id}}"></a> -->
+	<a href="/blogs/edit/{{blog.id}}">Edit</a>
+	<a href="/blogs/delete/{{blog.id}}">Delete</a>
+</body>
+</html>

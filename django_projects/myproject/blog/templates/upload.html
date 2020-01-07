@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Image</title>
+</head>
+<body>
+	
+<style type="text/css">
+.alert-success{
+    color: #0f0;
+}    
+</style>
+
+{% if messages %}
+    {% for message in messages %}
+    {% if  message.tags %} 
+        <div class=" {{ message.tags }}">{{ message }}</div>
+    {% endif %}
+    {% endfor %}
+{% endif %} 
+
+<form method="POST" action="/blogs/upload" enctype="multipart/form-data">
+{%csrf_token%}
+{{form}}
+<input type="submit" name="submit" value="Upload"> 
+</form>    
+
+</body>
+</html>

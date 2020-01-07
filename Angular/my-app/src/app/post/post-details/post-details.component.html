@@ -1,0 +1,14 @@
+<div *ngIf="post"> 
+  <h2>{{post.title | uppercase}} Details</h2>
+  <div><span>id: </span>{{post.id}}</div>
+  <div><span>title: </span>{{post.title}}</div>
+  <div><span>content: </span>{{post.body}}</div>
+</div>
+
+<button (click)="goBack()">go back</button>
+<button *ngIf="post">update</button>
+<button *ngIf="post" (click)="deletePost()">delete</button>
+
+
+<a routerLink="/posts/{{post.id}}/edit">Edit</a>
+<a routerLink="/posts/create">Create</a>

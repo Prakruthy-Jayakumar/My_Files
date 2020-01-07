@@ -1,0 +1,35 @@
+<div class="row">
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#addPostModal">Add Post</button>
+  <ul class="posts" *ngIf="myArray"> 
+    <li *ngFor="let x of myArray">
+      <a routerLink="/posts/{{x.id}}/view">
+        <span class="badge">{{x.id}}</span> {{x.title}}
+      </a> 
+    </li>
+  </ul>
+</div>
+<!-- Modal -->
+<div id="addPostModal" class="modal fade" role="dialog">
+<div class="modal-dialog">
+  <!-- Modal content-->
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title">New Post</h4>
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+    </div>
+    <div class="modal-body">
+      <label>Title:
+        <input #postTitle />
+      </label>
+      <br>
+      <label>Content:
+        <textarea #postBody rows="5"></textarea>
+      </label>
+    </div>
+    <div class="modal-footer">
+      <button (click)="add(postTitle.value,postBody.value); postTitle.value=''; postBody.value=''" class="btn btn-default">add</button>
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>
+</div>

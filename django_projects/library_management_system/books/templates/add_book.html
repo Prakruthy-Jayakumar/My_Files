@@ -1,0 +1,45 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add books</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+</head>
+<body style="background-color: white">
+	<form action="add_books" method="post">
+    {% csrf_token %}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4"><br><br>
+				<p style="text-align: center; font-size: 30px;">Add the details of books</p>
+			<div class="jumbotron" style="border-color: black;">
+				<div class="form-group">
+					<label>Book Name</label>
+   					 {{ form.book_name }}
+   				 <br><br>
+				</div>
+
+				<div class="form-group">
+					<label> Book Title </label><br>
+   					 {{form.book_title}}
+    				<br><br>
+				</div>
+
+				<div class="form-group">
+					 <label>Date of insert</label>
+    				{{form.insert_date}}
+    				<br><br>
+   			 	</div>
+
+			<div>
+				<input type="submit" value="Submit" style="background-color: white;color: black;height: 35px;width: 70px; border-radius: 20%;">
+				
+			</div>
+		</div>
+</div>
+   </form>
+</body>
+</html>
+
+    

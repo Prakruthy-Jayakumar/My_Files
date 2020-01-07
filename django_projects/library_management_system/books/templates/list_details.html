@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>List books</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+</head>
+<body>
+	<h1 style="text-align: center;">List of books</h1>
+	<a href="add_books" class="btn btn-info" role="button" style="float: right;">Add new Books</a>
+	<br><br>
+	
+	<table border="1" class="table">
+		<tr>
+			<th>Name</th>
+			<th>Edit/Delete/View</th>
+		</tr>
+
+		{% for icon in result %}
+		<tr>
+			
+  			<td>{{ icon.name }}</td>
+  			<!--<td>{{ icon.title}}</td>
+			<td>{{ icon.date}}</td>-->
+			<td> <a href="edit/{{icon.id}}" class="btn btn" role="button">Edit</a>
+			<a href="delete/{{icon.id}}"class="btn btn-danger" role="button" >Delete</a>
+			<a href="view/{{icon.id}}"class="btn btn-default" role="button"> View</a></td>
+		</tr>	
+
+		{% endfor %}
+	</table>
+		<a href="logout"class="btn btn-default" role="button" style="float: right;">Logout</a>
+
+</body>
+</html>

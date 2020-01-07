@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="row">
+        <h2>Edit Answer</h2>
+        <form #form5="ngForm" (ngSubmit) = "editanswer(form5.value)">
+            <label>Edited Answer</label>
+            <input type="text" ngModel name="answer" #answer="ngModel" placeholder="Enter your answer">
+            <input type="submit" class="btn btn-primary" value="Submit Answer">
+
+        </form>
+
+    </div>
+</div>

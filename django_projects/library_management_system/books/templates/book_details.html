@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>View-book details</title>
+</head>
+<body>
+	<h3>Book Name</h3>
+	<br>
+	{{ book.name }}
+	<br>
+	<h3>Title</h3>
+	{{book.title}}	
+	<br>
+	<h3>Date</h3>
+	{{ book.date }}	
+	<h4>List of Books</h4>
+
+	{% for icon in rslt %} <!-- for select or list  all values -->
+		<a href="/books/{{icon.id}}">Book_no: {{icon.id}}</a><br>
+	{% endfor %}
+
+	<br>
+	<br>
+	
+	<a href="/books/edit/{{book.id}}">Edit</a>
+	<a href="/books/delete/{{book.id}}">Delete</a>
+</body>
+</html>

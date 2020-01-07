@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator</title>
+</head>
+<body>
+	<h2>Calculator</h2>
+	<input id="num1" placeholder="First number">
+	<input id="num2" placeholder="Second number">
+	<label>Select the operation</label>
+	<select id="oper">
+		<option>+</option>
+		<option>-</option>
+		<option>*</option>
+		<option>/</option>
+	</select>
+	<button type="button" onclick="myoperation()">Submit</button>
+	<br>
+	<input id="num3" placeholder="result">
+	<script>
+		function myoperation()
+		{
+			var a,b,c,operator;
+			operator=document.getElementById("oper").value;
+			a=document.getElementById("num1").value;
+			b=document.getElementById("num2").value;
+			if(isNaN(a)&&isNaN(b)){
+				alert("Allow only numbers")
+			}else{
+				if(operator == "+")
+				{
+					c= a + b;
+				}
+				else if(operator== "-")
+				{
+					c=a-b;
+				}
+				else if(operator== "*")
+				{
+					c=a*b;
+				}
+				else if(operator== "/")
+				{
+					c=a / b;
+				}
+				else
+				{
+					alert("please check your value")
+				}
+				document.getElementById("num3").value=c;
+			}
+		}
+	
+
+	</script>
+</body>
+</html>

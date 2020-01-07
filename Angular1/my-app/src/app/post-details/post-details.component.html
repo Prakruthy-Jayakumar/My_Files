@@ -1,0 +1,10 @@
+<div *ngIf="post"> 
+  <h2>{{post.title | uppercase}} Details</h2>
+  <div><span>id: </span>{{post.id}}</div>
+  <div><span>title: </span><input type="text"[(ngModel)]="post.title" style="width: 100%"></div>
+  <div><span>content: </span><textarea [(ngModel)]="post.body" rows="5" style="width: 100%"></textarea></div>
+</div>
+
+<button (click)="goBack()">go back</button>
+<button (click)="updatePost()">update</button>
+<button (click)="deletePost()">delete</button>

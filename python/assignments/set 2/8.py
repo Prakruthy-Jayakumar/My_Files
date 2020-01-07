@@ -1,0 +1,13 @@
+a=("anu","balu","chinnu","dinu","elsa")
+print(a[3])
+print(a[-4])
+x=a.index("balu")
+print(x)
+y=a[::-1]
+print(y)
+b=[1,2,3,4,5]
+z=sum(b)
+print(z)
+c={"Apple","ball","chair","door","elephant"}
+c.remove("ball")
+print(c)

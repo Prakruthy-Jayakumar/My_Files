@@ -1,0 +1,10 @@
+<h2 style="text-align: center;">Add Answer</h2><br>
+  <div class="col-md-4 col-md-offset-4">
+    <div class="jumbotron" >
+      <form #form4 = "ngForm" (ngSubmit)=answer(form4.value)>
+        <label>Answer</label><br>
+          <input  type="text" ngModel  name="answer"><br><br>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign Up</title>
+</head>
+<body>
+	<form method="POST" action="/blogs/signup">
+	
+	{%csrf_token%}
+	<label>User Name</label><br>
+	{{form.username}}<br><br>
+	<label>Email</label><br>
+	{{form.email}}<br><br>
+	<label>Password</label><br>
+	{{form.password}}<br><br>
+	<input type="submit" name="submit" value="Signup"> 
+</form>
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %} 
+
+</body>
+</html>

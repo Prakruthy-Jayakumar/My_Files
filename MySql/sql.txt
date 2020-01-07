@@ -1,0 +1,189 @@
+CREATE DATABASE
+
+CREATE DATABASE library;
+CREATE DATABASE library_test;
+
+DRP DATABASE
+
+DROP DATABASE library_test;
+
+TABLE BOOKS
+
+CREATE TABLE BOOKS(
+    id INT(10) AUTO_INCREMENT,
+    book_name VARCHAR(10),
+    book_title VARCHAR(10),
+    author_name VARCHAR(10),
+    author_country VARCHAR(10),
+    year VARCHAR(10) NULL,
+    price FLOAT(7,2),
+    UNIQUE (id)
+);
+
+
+DUPLICATE TABLE DUPLICATE_BOOKS
+
+CREATE TABLE DUPLICATE_BOOKS 
+AS
+SELECT * 
+FROM BOOKS;
+
+TABLE USER_BOOKS
+
+CREATE TABLE user_book(
+    id INT(10),
+    user_name VARCHAR(10),
+    book_id INT(10),
+    user_country VARCHAR(10)
+);
+
+
+DROP TABLE
+
+DROP TABLE DUPLICATE_BOOKS;
+DELETE FROM BOOKS;
+
+
+ALTER TABLE
+
+ALTER TABLE books
+ADD CITY VARCHAR(10) AFTER author_country;
+
+ALTER TABLE books
+DROP CITY;
+
+ALTER TABLE books
+MODIFY COLUMN book_name VARCHAR(10) NOT NULL;
+
+
+
+
+
+
+TABLE AGENT
+
+CREATE TABLE AGENT( 
+agent_id INT(10) AUTO_INCREMENT, 
+name VARCHAR(10), 
+city VARCHAR(10), 
+commision FLOAT(7,2), 
+PRIMARY KEY(agent_id) 
+);
+
+INSERT INTO agent(name,city,commision)
+VALUES('elsa','cherthala',1256),
+	('dinu','ambalappuzha',1565),
+	('chinnu','kayamkulum',2568),
+	('balu','karunagapally',956),
+	('anu','sreekaryam',2365);
+
+
+TABLE CUSTOMER
+
+CREATE TABLE Customer( 
+customer_id INT(10) AUTO_INCREMENT,
+name VARCHAR(10), 
+city VARCHAR(10), 
+commision FLOAT(7,2),
+agent_id INT(10),
+PRIMARY KEY(customer_id)
+ );
+
+
+INSERT INTO customer(name,city,commision,agent_id)
+VALUES('anu','cherthala',1256,1),
+	('balu','ambalappuzha',1565,2),
+	('chinnu','kayamkulum',2568,3),
+	('dinu','karunagapally',956,4),
+	('elsa','sreekaryam',2365,5);
+
+TABLE ORDER
+
+CREATE TABLE Orders( 
+order_id INT(10) AUTO_INCREMENT, 
+customer_id INT(10), 
+agent_id INT(10), 
+purchase_amount FLOAT(7,2), 
+order_date DATE, 
+no_of_item INT(10), 
+PRIMARY KEY(order_id)
+);
+
+INSERT INTO orders(customer_id,agent_id,purchase_amount,order_date,no_of_item)
+VALUES(1,1,1258,'2011-1-1',10),
+	(2,2,5869,'2012-2-2',9),
+	(3,3,9874,'2013-3-3',8),
+	(4,4,6587,'2014-4-4',7),
+	(5,5,4568,'2015-5-5',6);
+
+LEFT JOIN
+
+SELECT customer.name,orders.no_of_item 
+FROM customer 
+LEFT JOIN orders 
+ON customer.agent_id=orders.agent_id;
+
+RIGHT JOIN
+
+SELECT customer.name,orders.no_of_item 
+FROM customer 
+RIGHT JOIN orders 
+ON customer.agent_id=orders.agent_id;
+
+UNION
+
+SELECT name
+FROM agent
+UNION
+SELECT name
+FROM customer;
+
+ORDER BY
+
+SELECT * FROM orders
+ORDER BY order_date ASC, purchase_amount DESC;
+
+GROUP BY
+
+SELECT city
+FROM agent
+GROUP BY city;
+
+SELECT city FROM agent GROUP BY city ORDER BY agent_id DESC;
+
+TABLE PRODUCT
+
+CREATE TABLE PRODUCT( 
+product_id INT(10) AUTO_INCREMENT, 
+name VARCHAR(10),  
+price FLOAT(7,2), 
+agent_id INT(10),
+PRIMARY KEY(product_id) 
+);
+
+INSERT INTO product(name,price,agent_id)
+VALUES('aaaa',1256,1),
+	('bbbbb',1565,2),
+	('cccc',2568,3),
+	('ddddd',956,4),
+	('eeee',2365,5);
+
+EXISTS
+
+SELECT name
+FROM agent
+WHERE EXISTS
+(SELECT price FROM product WHERE product.price>150);
+
+ANY
+
+SELECT * FROM product WHERE agent_id = ANY (SELECT agent_id FROM orders WHERE price > 10);
+
+ALL
+
+SELECT * FROM product WHERE agent_id = ALL (SELECT agent_id FROM orders WHERE price > 10);
+
+DATES
+
+SELECT * FROM Orders WHERE order_date='2011-1-1';
+
